@@ -1,0 +1,169 @@
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.Left {
+    width: 50%;
+    height: 50%;
+    float: left;
+    align-items: center;
+}
+
+#input {
+    padding: 0px 0px 0px 0px;
+    margin: -41px 0px -36px -3px;
+}
+
+#suggestions {
+    background-color: #668484;
+    width: 100%;
+    border-style: solid;
+    float: right;
+    height: 96%;
+    overflow-x: auto;
+    overflow-y: auto;
+    margin-bottom: -20px;
+}
+
+#suggestionsbox {
+    color: black;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    width: 42%;
+}
+
+#sentence {
+    color: white;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    width: 70%;
+    padding: 0px 0px 0px 88px;
+    margin: 0px 0px 0px -36px;
+}
+
+#sentence1 {
+    color: white;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    width: 42%;
+    padding: 0px 0px 0px 49px;
+}
+
+#Right {
+    width: 40%;
+    float: right;
+    height: 80%;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 11px;
+    margin: 0px 14px 2px -1px;
+}
+
+
+#wordlist {
+    width: 100%;
+    height: 30px;
+    background-color: #f45e8f;
+    border: 2px solid White;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+
+.button {
+    display: inline-block;
+    background: #184848;
+    color: #fff;
+    border-radius: 10px;
+    border: 4px double black;
+    color: #eeeeee;
+    text-align: center;
+    margin: 0px -111px 0px 88px;
+    font-size: 25px;
+    width: 300px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding: 0px 25px 0px 24px;
+    font-family: Georgia, serif;
+}
+
+#buttonPosition {
+    margin-left: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#note
+{
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #59e798;
+}
+
+
+
+.row {
+    /* margin-right: -40px;
+    margin-left: 30px;
+    margin-top: 5px; */
+    height: 30%;
+    width: 30%;
+}
+
+.font {
+    color: white;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    font-size: 15px;
+}
+
+select.mySelect {
+
+    background: #184848;
+    color: #fff;
+    margin: 0px 0px 0px 5px;
+    padding: 0px 10px 0px 10px;
+    width: 158px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    font-size: 15px;
+}
+
+select.mySelect option {
+    color: #000;
+    padding: 0 10px;
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+    background: #184848;
+    color: #fff;
+    border-radius: 10px;
+    border: 2px double black;
+    color: #eeeeee;
+    text-align: center;
+    margin: 0px 0px 0px 60px;
+    font-size: 22px;
+    width: 63%;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+}
