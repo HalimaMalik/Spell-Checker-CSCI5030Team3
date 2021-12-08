@@ -49,12 +49,12 @@ def english_word_suggestions(word): # Main function to give suggestions for Engl
                     edit = nltk.edit_distance(word, key)
                     if (edit == 1 or edit == 2):
                         english_suggestions[key] = value
-            top_five = Counter(english_suggestions) 
-            return [key for key,values in top_five.most_common(5)]
+                top_five = Counter(english_suggestions) 
+                return [key for key,values in top_five.most_common(5)]
                 
 def irish_word_suggestions(word): # Main function to give suggestions for Irish
     irish_term_list = irish_file_read()
-    irish_suggestions = []
+    irish_suggestions = {}
     if (word.isalnum() == False):
          return word
     else:    
@@ -62,16 +62,17 @@ def irish_word_suggestions(word): # Main function to give suggestions for Irish
             for key,value in irish_term_list.items():
                 edit = nltk.edit_distance(word, key)
                 if (edit == 1):
-                    irish_suggestions.append(key)
-            return irish_suggestions
+                    irish_suggestions[key] = value
+            top_five = Counter(irish_suggestions) 
+            return [key for key,values in top_five.most_common(5)]
         else:
             if (5<=len(word)<=12):
                 for key,value in irish_term_list.items():
                     edit = nltk.edit_distance(word, key)
                     if (edit == 1 or edit == 2):
-                        irish_suggestions.append(key)              
-                return irish_suggestions
-
+                         irish_suggestions[key] = value
+                top_five = Counter(irish_suggestions) 
+                return [key for key,values in top_five.most_common(5)]
     
 def spellCheck(text,languagetowrite): # Main function
     suggestions=[]
@@ -79,31 +80,30 @@ def spellCheck(text,languagetowrite): # Main function
     words = text.split()
     if (language == "English"):
         for i in words:
-            print(i)
             word= i + ":"
-            e=english_word_suggestions(i)
-            print("e")
-            print(e)
-            x= ','.join([str(element) for element in e])
-            print("x")
-            print(x)
-            word=word + x + "\n"
-            suggestions.append(word)
-            # appending suggestion if there are more than a single word 
-            print(suggestions)
-            print("suggestions")
+            e = english_word_suggestions(i)
+            if(e!=""):
+                x= ','.join([str(element) for element in e])
+                word=word + x + "\n"
+                suggestions.append(word) #appending suggestion if there are more than a single word          
+        return suggestions
+    else:
+        for i in words:            
+            word= i + ":"
+            e=irish_word_suggestions(i)  # appending suggestion if there are more than a single word 
+            if(e!=""):           
+                x= ','.join([str(element) for element in e])            
+                word=word + x + "\n"
+                suggestions.append(word)
         return suggestions
 
 @app.route('/', methods=['POST'])
 def check():
     if request.method == 'POST':
         p=request.form.getlist('word') # getting wordlist from front end
-        print(p[0])
         languagetowrite=request.form.get('language')
         textoutput = spellCheck(p[0],languagetowrite)# send wordlist to function
-        print(textoutput)
         listToStr = ''.join([str(element) for element in textoutput])
-        print(listToStr)
         return listToStr
     
 
