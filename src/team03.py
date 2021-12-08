@@ -30,23 +30,27 @@ def detect_language(text): # Detecting Language on backend
     
 def english_word_suggestions(word): # Main function to give suggestions for English
     english_term_list = english_file_read()
-    english_suggestions = []
+    english_suggestions = {}
     if (word.isalnum() == False):
          return word
+    elif(word in english_term_list):   
+        return ""
     else:
         if (len(word)<=4):
             for key,value in english_term_list.items():
                 edit = nltk.edit_distance(word, key)
                 if (edit == 1):
-                    english_suggestions.append(key)
-            return english_suggestions
+                    english_suggestions[key] = value
+            top_five = Counter(english_suggestions) 
+            return [key for key,values in top_five.most_common(5)] 
         else:
             if (5<=len(word)<=12):
                 for key,value in english_term_list.items():
                     edit = nltk.edit_distance(word, key)
                     if (edit == 1 or edit == 2):
-                        english_suggestions.append(key)              
-                return english_suggestions 
+                        english_suggestions[key] = value
+            top_five = Counter(english_suggestions) 
+            return [key for key,values in top_five.most_common(5)]
                 
 def irish_word_suggestions(word): # Main function to give suggestions for Irish
     irish_term_list = irish_file_read()
