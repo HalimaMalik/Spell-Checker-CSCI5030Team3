@@ -1,0 +1,29 @@
+Steps to run the code:
+
+We are using Flask so you need to set up a local host first.
+
+Files needed :
+
+1. Team03.py
+2. Team03.html
+3. Team03.jfif
+4. Team03.css
+
+Every file should be kept in proper folder structure view image to design the local folder structure on your machine.
+
+If you are using IDE.
+
+1. Open the Team03.py file and run as active file. 
+2. In terminal section ctrl+ right click it will open file in browser.
+
+Note: Please put every file in proper folder to run. 
+      Design image is present on git in Team03Folder design.
+      
+You will need to create extra folder like static templates on local machine.
+
+Note: Folder creation of static, Image and Images is important
+     static: Image
+     Images: Background Image
+     templates: html ( to render from python).
+
+
