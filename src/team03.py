@@ -17,7 +17,7 @@ def irish_file_read(): # Irish File Reading
     return vocab
 
 def english_file_read(): # English File Reading
-    file = open("frequent_english_3000.txt", encoding="utf8").read() # Edit Filename
+    file = open("frequent_english_3500.txt", encoding="utf8").read() # Edit Filename
     tokens = word_tokenize(file)
     tokens_words = [word for word in tokens if word.isalnum()]
     vocab = Counter(tokens_words)
